@@ -43,8 +43,13 @@
 .toplistitem {
   margin-right: 35px;
   font-size: 20px;
+  font-weight: 100;
   cursor: pointer;
-  font-weight: 400;
+  font-weight: 200;
+}
+.toplistitem:hover {
+  font-size: 25px;
+  font-weight: 300;
 }
 .topSearchIcon {
   font-size: 20px;

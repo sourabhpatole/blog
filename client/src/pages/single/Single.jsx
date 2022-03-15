@@ -1,11 +1,12 @@
 import React from "react";
-import Sidebar from "../../../components/sidebar/Sidebar";
+import Sidebar from "../../components/sidebar/Sidebar";
+import SinglePost from "../../components/singlePost/SinglePost";
 import "./single.css";
 
 const Single = () => {
   return (
     <div className="single">
-      {/* posts */}
+      <SinglePost />
       <Sidebar />
     </div>
   );
