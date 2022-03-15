@@ -8,7 +8,7 @@ const Sidebar = () => {
         <img
           className="aboutImg"
           src="https://images.pexels.com/photos/2106037/pexels-photo-2106037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          srcset=""
+          alt="img"
         />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
