@@ -13,26 +13,48 @@ router.post("/", async (req, res) => {
   }
 });
 //update
-router.delete("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id) {
-    try {
-      const user = await User.findById(req.params.id);
+router.put("/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (post.username === req.body.username) {
       try {
-        await Post.deleteMany({ username: user.username });
-        await User.findByIdAndDelete(req.params.id);
-        res.status(200).json("deleted user");
+        const updatedpost = await Post.findByIdAndUpdate(
+          req.params.id,
+          {
+            $set: req.body,
+          },
+          { new: true }
+        );
+        res.status(200).json(updatedpost);
       } catch (error) {
         res.status(500).json(error);
       }
-    } catch (error) {
-      res.status(404).json("Not found");
+    } else {
+      res.status(401).json("Update only your post");
     }
-  } else {
-    res.status(401).json("Delete only your account");
+  } catch (error) {
+    res.status(500).json(error);
   }
 });
 
 //delete post
+router.delete("/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (post.username === req.body.username) {
+      try {
+        await post.delete();
+        res.status(200).json("Post deleted");
+      } catch (error) {
+        res.status(500).json(error);
+      }
+    } else {
+      res.status(401).json("Delete only your post");
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 //get post
 router.get("/:id", async (req, res) => {
   try {
