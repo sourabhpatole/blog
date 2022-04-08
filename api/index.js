@@ -40,6 +40,15 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/category", categoryRoute);
 
-app.listen(5000, () => {
+// deployment
+__dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "/client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
   console.log("Backend is Running");
 });
