@@ -22,9 +22,9 @@ const Sidebar = () => {
           alt="img"
         />
         <p>
-          We have combined our expertise in content creation, content
-          outsourcing, and product development to provide you with advice and
-          best practices for creating the perfect content brief.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
+          velit, rem amet labore est, aliquam accusantium saepe minima quisquam
+          omnis, dicta minus neque!
         </p>
         <div className="sidebarItem">
           <span className="sidebarTitle">CATEGORIES</span>
